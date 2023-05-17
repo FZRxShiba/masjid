@@ -42,10 +42,11 @@
           </tr>
         </thead>
         <tbody>
+          @php $no = 1; @endphp
          @foreach ($infaqs as $infaq)
          
          <tr>
-            <td>{{ $infaq->id }}</td>
+            <td>{{ $no++ }}</td>
             <td>{{ $infaq->tanggal }}</td>
             <td>{{ $infaq->keterangan }}</td>
             <td>{{ $infaq->jumlah }}</td>
