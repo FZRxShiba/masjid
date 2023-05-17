@@ -22,6 +22,16 @@ class InfaqController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'tanggal' => ['required'],
+            'keterangan' => ['required'],
+            'jumlah' => ['required'],
+
+            
+            
+            
+        ]);
+
         $infaq = new Infaq();
 
         $infaq->tanggal = $request->tanggal;
@@ -29,7 +39,8 @@ class InfaqController extends Controller
         $infaq->jumlah = $request->jumlah;
 
         $infaq->save();
-        
+        session()->flash('success', 'Data Berhasil Ditambahkan.');
+
         return redirect()->route('infaqs.index');
     }
 
@@ -50,6 +61,8 @@ class InfaqController extends Controller
         $infaq->jumlah = $request->jumlah;
 
         $infaq->save();
+
+        session()->flash('info', 'Data Berhasil Diperbarui.');
         
         return redirect()->route('infaqs.index');
     }
@@ -58,6 +71,7 @@ class InfaqController extends Controller
     {
         $infaq = Infaq::find($id);
         $infaq->delete();
+        session()->flash('danger', 'Data Berhasil Dihapus.');
 
         return redirect()->route('infaqs.index');
     }
