@@ -47,9 +47,9 @@
          
          <tr>
             <td>{{ $no++ }}</td>
-            <td>{{ $infaq->tanggal }}</td>
+            <td>{{ $infaq->created_at }}</td>
             <td>{{ $infaq->keterangan }}</td>
-            <td>{{ $infaq->jumlah }}</td>
+            <td>@currency($infaq->jumlah)</td>
             
             <td>
               <center><a href="{{route('infaqs.edit', $infaq->id)}}" class="btn btn-primary btn-sm">  Edit  </a></center>

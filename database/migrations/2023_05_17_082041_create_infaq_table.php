@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('infaq', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
             $table->string('keterangan');
             $table->integer('jumlah');
             $table->timestamps();

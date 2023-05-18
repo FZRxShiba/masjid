@@ -17,15 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/infaqs', [InfaqController::class, 'index'])->name('infaqs.index');
-Route::get('/infaqs/create', [InfaqController::class, 'create'])->name('infaqs.create');
-Route::post('/infaqs', [InfaqController::class, 'store'])->name('infaqs.store');
-Route::get('/infaqs/{id}/edit', [InfaqController::class, 'edit'])->name('infaqs.edit');
-Route::put('/infaqs/{id}', [InfaqController::class, 'update'])->name('infaqs.update');
-Route::delete('/infaqs/{id}', [InfaqController::class, 'destroy'])->name('infaq.destroy');
+Route::get('/infaqs', [InfaqController::class, 'index'])->name('infaqs.index')->middleware('auth');
+Route::get('/infaqs/create', [InfaqController::class, 'create'])->name('infaqs.create')->middleware('auth');
+Route::post('/infaqs', [InfaqController::class, 'store'])->name('infaqs.store')->middleware('auth');
+Route::get('/infaqs/{id}/edit', [InfaqController::class, 'edit'])->name('infaqs.edit')->middleware('auth');
+Route::put('/infaqs/{id}', [InfaqController::class, 'update'])->name('infaqs.update')->middleware('auth');
+Route::delete('/infaqs/{id}', [InfaqController::class, 'destroy'])->name('infaq.destroy')->middleware('auth');
 
 
 Route::get('/dashboard', function () {

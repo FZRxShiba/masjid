@@ -23,7 +23,7 @@ class InfaqController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'tanggal' => ['required'],
+
             'keterangan' => ['required'],
             'jumlah' => ['required'],
 
@@ -34,7 +34,7 @@ class InfaqController extends Controller
 
         $infaq = new Infaq();
 
-        $infaq->tanggal = $request->tanggal;
+
         $infaq->keterangan = $request->keterangan;
         $infaq->jumlah = $request->jumlah;
 
@@ -48,7 +48,7 @@ class InfaqController extends Controller
     {
         $infaq = Infaq::find($id);
         return view('infaqs.edit', [
-            'infaq' => $infaq,
+            'infaqs' => $infaq,
         ]);
     }
 
@@ -56,7 +56,6 @@ class InfaqController extends Controller
     {
         $infaq = Infaq::find($id);
 
-        $infaq->tanggal = $request->tanggal;
         $infaq->keterangan = $request->keterangan;
         $infaq->jumlah = $request->jumlah;
 
